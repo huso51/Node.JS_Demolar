@@ -1,0 +1,30 @@
+node --version //node js in versiyonunu verir
+npm --version //npm nin versiyonunu verir
+live-server o anki klasörü server de çalıştırır
+npm init --yes // package.json dosyasını oluşturur.
+npm i underscore //underscore isimli kütüphaneyi kurar
+npm install
+npm i jquery //jquery isimli kütüphaneyi kurar
+npm i jquery --save //jquery isimli kütüphaneyi kurar ve package.json dosyasının içindeki dependencies'in içine ekler.
+npm i webpack --save-dev //weback isimli paketi kurar ama sadece geliştirme aşamasındayken bu kütüphane elimizde durur.
+npm i live-server --global //global olarak kurduk yani bu kütüphane bizim projemize değil de bilgisayarımıza kuruldu. artık bütün projelerde bu kütüphaneyi kullanabileceğiz.
+npm list -g //global olarak kurulan bütün paketleri listeler.
+npm list -g --deph 0 //global olarak kurulan üst paketleri listeler.
+npm uninstall jquery //jquery isimli paketi projeden siliyor.
+npm run start-server
+npm i nodemon --save-dev
+npm install body-parser
+npm i pug //pug isimli template engineyi kurar
+npm i mysql2 --save //mysql bağlantısı için
+npm i sequelize --save //orm aracı kütüphanesi
+npm i mongodb --save //mongodb paketi
+npm i mongoose@5.4.16 --save //mongoose isimli orm aracı
+npm i cookie-parser --save //cookie çerez oluşturmak için
+npm i express-session --save //session oturum oluşturmak için
+npm i connect-mongodb-session@2.1.1 //sessionu veritabanında saklamak için mongodb de
+npm i bcrypt --save //mongodb deki şifreleri şifrelemek için yani hashlemek için
+npm i csurf@1.9.0 --save //csrf koruması içinmiş
+npm i @sendgrid/mail@6.3.1 //mail göndermek için kullandığımız server
+npm i @sendgrid/mail //mail göndermek için kullandığımız server
+npm i validator --save //validasyon için yani doğrulama için form doğrulama
+npm i multer@1.4.1 --save //formdan sunucuya file yada files göndermek için

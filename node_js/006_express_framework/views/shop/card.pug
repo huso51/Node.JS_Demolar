@@ -1,0 +1,48 @@
+extends ../layouts/main-layout.pug
+
+block content
+    if (action !=='undefined' && action === 'edit')
+        div.alert.alert-success Ürün güncellendi!
+    if (action !=='undefined' && action === 'delete')
+        div.alert.alert-danger Ürün silindi!
+    
+    if products.length > 0
+        table.table.table-bordered 
+            thead 
+                tr 
+                    th(style='width=`100px`') Name 
+                    th Product Name
+                    th(style='width=`150px`') Price 
+                    th(style='width=`133px`') Quantity
+                    th(style='width=`133px`') Process
+                    th(style='width=`133px`') Total
+            tbody 
+                each product in products 
+                    tr 
+                        td 
+                            img(src=`/img/${product.productId.image}` width=`50`)
+                        td 
+                            input(type='text' value=`${product.productId.name}`)
+                        td
+                            input(type='text' value=`${product.productId.price} ₺`)
+                        td 
+                            #{product.quantity}
+                        td 
+                            form(action='/delete-carditem' method='POST')
+                                input(type="hidden" name="_csrf" value=`${csrfToken}`)
+                                input(type='hidden' name='productId' value=`${product.productId._id}`)
+                                button(type='submit').btn.btn-danger.btn-sm Delete
+            tfoot 
+                td(colspan="4")
+                    - var total = 0;
+                    each product in products 
+                        - total += (product.productId.price * product.quantity);
+                td 
+                td #{total} 
+        .text-center
+            a(href="").btn.btn-primary Alışverişe Devamkee 
+            form(action="/create-order" method="POST")
+                input(type="hidden" name="_csrf" value=`${csrfToken}`)
+                button(type="submit").btn.btn-primary.ml-2 Alışverişi Tamamla 
+    else 
+        h1 No Products
